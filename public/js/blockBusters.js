@@ -1,10 +1,13 @@
-const newBox = document.createElement("div");
-
-newBox.setAttribute("id", "block-i");
-
-const blocks = document.getElementById("block-1");
-for (let block of blocks) {
-  document.createElement("div");
-
-  block.setAttribute("id", "block-num");
+const texts = document.getElementById("blocks");
+for (i = 2; i < 101; i++) {
+  const text = document.createElement("div");
+  text.setAttribute("id", "block-" + i);
+  text.setAttribute("class", "red-block");
+  text.addEventListener("mouseover", function () {
+    text.style.visibility = "hidden";
+  });
+  text.addEventListener("mouseleave", function () {
+    text.style.visibility = "visible";
+  });
+  texts.appendChild(text);
 }
