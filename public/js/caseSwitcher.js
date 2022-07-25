@@ -28,13 +28,13 @@ function changeSarc() {
   console.log(split);
 
   for (let i = 0; i < split.length; i++) {
-    if (split[i] === " ") {
+    if (split[i] === "") {
       continue;
     }
     if (i % 2 === 0) {
-      split[i] = split[i].toUpperCase();
-    } else {
       split[i] = split[i].toLowerCase();
+    } else {
+      split[i] = split[i].toUpperCase();
     }
   }
   para.innerText = split.join("");
