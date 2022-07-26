@@ -1,3 +1,8 @@
+let para = document.getElementById("patrick");
+  let text = para.innerText;
+  let split = text.split("");
+
+
 const btn1 = document.getElementById("quiet-btn");
 btn1.addEventListener("click", changeLower);
 
@@ -22,22 +27,27 @@ const btn3 = document.getElementById("sarc-btn");
 btn3.addEventListener("click", changeSarc);
 
 function changeSarc() {
-  let para = document.getElementById("patrick");
-  let text = para.innerText;
-  let split = text.split("");
-  console.log(split);
+let finalString = '';
+let counter = 0;
 
-  for (let i = 0; i < split.length; i++) {
-    if (split[i] === "") {
+  for (let i = 0; i < para.innerText.length; i++) {
+    
+    if (para.innerText[i] == " ") {
+      finalString += para.innerText[i]
       continue;
     }
-    if (i % 2 === 0) {
-      split[i] = split[i].toLowerCase();
-    } else {
-      split[i] = split[i].toUpperCase();
+    if (para.innerText [i] == "." || para.innerText[i] == "," || para.innerText [i] == "!"){
+      finalString += para.innerText[i]
+      continue;
     }
+    if (counter % 2 == 0) {
+      finalString = para.innerText[i].toLowerCase();
+    } else {
+      finalString= para.innerText[i].toUpperCase();
+    }
+    counter++
   }
-  para.innerText = split.join("");
+  para.innerText = finalString;
   // document.getElementById("patrick").innerText = char.toLowerCase();
   //     document.getElementById("patrick").innerText = char.toUpperCase();
 }
