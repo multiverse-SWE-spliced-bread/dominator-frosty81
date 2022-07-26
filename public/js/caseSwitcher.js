@@ -1,53 +1,41 @@
-let para = document.getElementById("patrick");
-  let text = para.innerText;
-  let split = text.split("");
-
-
-const btn1 = document.getElementById("quiet-btn");
-btn1.addEventListener("click", changeLower);
-
-function changeLower() {
   let para = document.getElementById("patrick");
-
   let text = para.innerText;
-
-  document.getElementById("patrick").innerText = text.toLowerCase();
+    
+const btn1 = document.getElementById("quiet-btn");
+function changeLower() {
+  para.innerText = text.toLowerCase();
 }
 
 const btn2 = document.getElementById("loud-btn");
-btn2.addEventListener("click", changeUpper);
 function changeUpper() {
-  para = document.getElementById("patrick");
-  text = para.innerText;
-
-  document.getElementById("patrick").innerText = text.toUpperCase();
+  para.innerText = para.innerText.toUpperCase();
 }
 
-const btn3 = document.getElementById("sarc-btn");
-btn3.addEventListener("click", changeSarc);
 
+const btn3 = document.getElementById("sarc-btn");
 function changeSarc() {
 let finalString = '';
 let counter = 0;
-
-  for (let i = 0; i < para.innerText.length; i++) {
-    
-    if (para.innerText[i] == " ") {
-      finalString += para.innerText[i]
+for(let i = 0; i < text.length; i++) {
+    if (text[i] == " ") {
+      finalString += text[i];
       continue;
     }
-    if (para.innerText [i] == "." || para.innerText[i] == "," || para.innerText [i] == "!"){
-      finalString += para.innerText[i]
+    if (text[i] == "." || text[i] == "," || text[i] == "!"){
+      finalString += text[i];
       continue;
     }
     if (counter % 2 == 0) {
-      finalString = para.innerText[i].toLowerCase();
+      finalString += text[i].toLowerCase();
     } else {
-      finalString= para.innerText[i].toUpperCase();
+      finalString += text[i].toUpperCase();
     }
     counter++
   }
   para.innerText = finalString;
-  // document.getElementById("patrick").innerText = char.toLowerCase();
-  //     document.getElementById("patrick").innerText = char.toUpperCase();
+  console.log(text)
 }
+
+btn1.addEventListener("click", changeLower);
+btn2.addEventListener("click", changeUpper);
+btn3.addEventListener("click", changeSarc);
